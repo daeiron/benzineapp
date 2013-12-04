@@ -4,7 +4,7 @@
 div#resultaat{
 text-align: center;	
 margin-bottom: 2%;
-font-size: 20px;
+font-size: 16px;
 display: none;
 }
 
@@ -18,7 +18,7 @@ font-weight: bold;
 
 div#overig{
 text-align: center;
-font-size: 18px;
+font-size: 14px;
 margin-bottom: 2%;	
 }
 
