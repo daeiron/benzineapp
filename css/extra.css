@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+div#resultaat{
+text-align: center;	
+margin-bottom: 2%;
+font-size: 20px;
+display: none;
+}
+
+div#resultaat span{
+display: block;	
+}
+
+span#title{
+font-weight: bold;	
+}
+
+div#overig{
+text-align: center;
+font-size: 18px;
+margin-bottom: 2%;	
+}
+
+div#overig span{
+display: block;	
+}
+
+div.ui-block-a,div.ui-block-b,div.ui-block-c{
+border-right: solid 1px #666666;
+}

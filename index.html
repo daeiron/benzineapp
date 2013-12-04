@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>De kilometer app</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
+<link rel="stylesheet" href="css/extra.css" />
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.mobile-1.3.2.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$('#submit').click(function(){
+		
+		var ouders = parseInt($('#slider-ouders').val());
+		var thomas = parseInt($('#slider-thomas').val());
+		var niels = parseInt($('#slider-niels').val());
+		var eline = parseInt($('#slider-eline').val());
+		
+		var kosten = parseInt($('#slider-kosten').val());
+	
+		var totaal = ouders + thomas + niels + eline;
+		
+		var liters = parseInt($('#slider-liters').val());
+	
+		var deelOuders = ouders / totaal;
+		var deelThomas = thomas / totaal;
+		var deelNiels = niels / totaal;
+		var deelEline = eline / totaal;
+		
+		var gemLiters = ((Math.round(totaal / liters * 100)) / 100 ).toFixed(2);
+		
+		var kostenOuders = ((Math.round(deelOuders * kosten * 100)) / 100 ).toFixed(2);
+		var kostenThomas = ((Math.round(deelThomas * kosten * 100)) / 100 ).toFixed(2);
+		var kostenNiels = ((Math.round(deelNiels * kosten * 100)) / 100 ).toFixed(2);
+		var kostenEline = ((Math.round(deelEline * kosten * 100)) / 100 ).toFixed(2);
+		
+		$('#resultaat').show();
+		
+		$('#percentageOuders').html("Aandeel: " + (deelOuders * 100).toFixed(2) + "%");
+		$('#kostenOuders').html("Kosten: &euro; " + kostenOuders);
+		
+		$('#percentageThomas').html("Aandeel: " + (deelThomas * 100).toFixed(2) + "%");
+		$('#kostenThomas').html("Kosten: &euro; " + kostenThomas);
+		
+		$('#percentageNiels').html("Aandeel: " + (deelNiels * 100).toFixed(2) + "%");
+		$('#kostenNiels').html("Kosten: &euro; " + kostenNiels);
+		
+		$('#percentageEline').html("Aandeel: " + (deelEline * 100).toFixed(2) + "%");
+		$('#kostenEline').html("Kosten: &euro; " + kostenEline);
+		
+		$('#overig').html("<span id=\"totaal\"><strong>Totaal kilometers:</strong> " + totaal + " km</span><span id=\"gemiddeld\"><strong>Kilometers per liter:</strong> "+ gemLiters +"</span>");
+
+	});
+});
+
+</script>
+
+</head>
+<body>
+
+    <div data-role="page">
+ 
+        <div data-role="header">
+            <h1>Kilometers berekenen</h1>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+            <form  id="formulier" method="" action="">
+                <label for="slider-ouders">Ouders</label>
+                <input type="range" name="slider-ouders" id="slider-ouders" value="250" min="0" max="500" />
+                <label for="slider-ouders">Thomas</label>
+                <input type="range" name="slider-thomas" id="slider-thomas" value="250" min="0" max="500" />
+                <label for="slider-ouders">Niels</label>
+                <input type="range" name="slider-niels" id="slider-niels" value="250" min="0" max="500" />
+                <label for="slider-ouders">Eline</label>
+                <input type="range" name="slider-eline" id="slider-eline" value="250" min="0" max="500" />
+                <label for="slider-prijs">Kosten</label>
+                <input type="range" name="slider-kosten" id="slider-kosten" value="30" min="0" max="60" step="0.25" />
+                 <label for="slider-liters">Liters</label>
+                <input type="range" name="slider-liters" id="slider-liters" value="20" min="0" max="40" step="0.25" />
+                <a href id="submit" data-role="button" data-icon="check">Bereken</a>
+            </form>
+        </div>
+        
+    <div id="resultaat" class="ui-grid-c">
+        <div class="ui-block-a">
+            <span id="title">Ouders</span>
+            <span id="percentageOuders"></span>
+            <span id="kostenOuders"></span>
+        </div>
+        <div class="ui-block-b">
+            <span id="title">Thomas</span>
+            <span id="percentageThomas"></span>
+            <span id="kostenThomas"></span>
+        </div>
+        <div class="ui-block-c">
+            <span id="title">Niels</span>
+            <span id="percentageNiels"></span>
+            <span id="kostenNiels"></span>
+        </div>
+        <div class="ui-block-d">
+            <span id="title">Eline</span>
+            <span id="percentageEline"></span>
+            <span id="kostenEline"></span>
+        </div>
+    </div>
+    
+    <div id="overig"></div>
+ 
+        <div data-role="footer">
+            <h4>&copy; Thomas van Gerven</h4>
+        </div>
+ 
+    </div>
+
+</body>
+</html>
