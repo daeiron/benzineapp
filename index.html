@@ -14,16 +14,14 @@ $(document).ready(function() {
 	
 	$('#submit').click(function(){
 		
-		var ouders = parseInt($('#slider-ouders').val());
-		var thomas = parseInt($('#slider-thomas').val());
-		var niels = parseInt($('#slider-niels').val());
-		var eline = parseInt($('#slider-eline').val());
+		var ouders = parseFloat($('#slider-ouders').val());
+		var thomas = parseFloat($('#slider-thomas').val());
+		var niels = parseFloat($('#slider-niels').val());
+		var eline = parseFloat($('#slider-eline').val());
+		var kosten = parseFloat($('#slider-kosten').val());
+		var liters = parseFloat($('#slider-liters').val());
 		
-		var kosten = parseInt($('#slider-kosten').val());
-	
 		var totaal = ouders + thomas + niels + eline;
-		
-		var liters = parseInt($('#slider-liters').val());
 	
 		var deelOuders = ouders / totaal;
 		var deelThomas = thomas / totaal;
@@ -37,7 +35,7 @@ $(document).ready(function() {
 		var kostenNiels = ((Math.round(deelNiels * kosten * 100)) / 100 ).toFixed(2);
 		var kostenEline = ((Math.round(deelEline * kosten * 100)) / 100 ).toFixed(2);
 		
-		$('#resultaat').show();
+		$('#resultaat').fadeIn(300);
 		
 		$('#percentageOuders').html("Aandeel<br /> " + (deelOuders * 100).toFixed(2) + "%");
 		$('#kostenOuders').html("Kosten<br /> &euro; " + kostenOuders);
